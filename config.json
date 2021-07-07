@@ -1,0 +1,126 @@
+{
+    "ois": [
+        {
+            "oisFormat": "1.0.0",
+            "title": "GitHub_API",
+            "version": "1.0.0",
+            "apiSpecifications": {
+                "servers": [
+                    {
+                        "url": "https://api.github.com"
+                    }
+                ],
+                "paths": {
+                    "/repos/{org}/{repo}/issues/{issueNumber}": {
+                        "get": {
+                            "parameters": [
+                                {
+                                    "in": "path",
+                                    "name": "org"
+                                },
+                                {
+                                    "in": "path",
+                                    "name": "repo"
+                                },
+                                {
+                                    "in": "path",
+                                    "name": "issueNumber"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "components": {
+                    "securitySchemes": {}
+                },
+                "security": {}
+            },
+            "endpoints": [
+                {
+                    "name": "issueState",
+                    "operation": {
+                        "method": "get",
+                        "path": "/repos/{org}/{repo}/issues/{issueNumber}"
+                    },
+                    "fixedOperationParameters": [],
+                    "reservedParameters": [
+                        {
+                            "name": "_type",
+                            "fixed": "bytes32"
+                        },
+                        {
+                            "name": "_path",
+                            "default": "state"
+                        }
+                    ],
+                    "parameters": [
+                        {
+                            "name": "org",
+                            "operationParameter": {
+                                "in": "path",
+                                "name": "org"
+                            },
+                            "description": "The GitHub organization",
+                            "required": "true"
+                        },
+                        {
+                            "name": "repo",
+                            "operationParameter": {
+                                "in": "path",
+                                "name": "repo"
+                            },
+                            "description": "The GitHub repository",
+                            "required": "true"
+                        },
+                        {
+                            "name": "issueNumber",
+                            "operationParameter": {
+                                "in": "path",
+                                "name": "issueNumber"
+                            },
+                            "description": "The GitHub issue number",
+                            "required": "true"
+                        }
+                    ],
+                    "summary": "Returns the state of a given issue.",
+                    "description": "Takes in operation parameters of org, repo and issueNumber to return whether the issue is 'open' or 'closed'"
+                }
+            ]
+        }
+    ],
+    "triggers": {
+        "request": [
+            {
+                "endpointId": "0x43ec2e57fb7e9d4e286a32a73a8bdb8c92e9bfd3885a4e0c94276eca0b322809",
+                "oisTitle": "GitHub_API",
+                "endpointName": "issueState"
+            }
+        ]
+    },
+    "nodeSettings": {
+        "providerIdShort": "b95594f",
+        "nodeVersion": "0.1.0",
+        "cloudProvider": "local",
+        "region": "us-east-2",
+        "stage": "rinkeby",
+        "logFormat": "json",
+        "chains": [
+            {
+                "id": "4",
+                "type": "evm",
+                "providers": [
+                    {
+                        "name": "infura-rinkeby",
+                        "url": "https://rinkeby.infura.io/v3/54e58d0c329e42cfac03f0fd769abc2a"
+                    }
+                ],
+                "contracts": {
+                    "Airnode": "0xF9C39ec11055508BddA0Bc2a0234aBbbC09a3DeC",
+                    "Convenience": "0xC9fb36DfAE95AD52E32ad48CCe9A1A169EfFaC6E"
+                },
+                "providerAdminForRecordCreation": "0x385E436446E3bfA0e91Cb6956beb821177d490b3"
+            }
+        ]
+    },
+    "id": "981d57c2-a004-4526-99da-1b04608fb462"
+}
